@@ -9,7 +9,8 @@
 
 - below are the most important components of the load balancers.
 
-<u>*the below stuff writen, I need to explore more to get more clarity*</u>
+# ___the below stuff writen, I need to explore more to get more clarity___
+
 
 ## Routing Algorithm
 - this determines, how the load balancer distributes incoming request to the backend servers.
