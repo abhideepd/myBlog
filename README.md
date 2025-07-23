@@ -1,6 +1,7 @@
 # myBlog
 
-<!--Just to store written thoughts, whatever I am learning. Just for backtracking on what I learnt, in order to prevent "reinventing the wheel".-->
+Just to store written thoughts, whatever I am learning. Just for backtracking on what I learnt, in order to prevent "reinventing the wheel".
+Sometimes I feel the urge to write, I write.
 
 <details markdown="1">
   <summary>my journey of building typemint</summary>
