@@ -2,7 +2,7 @@
 
 <!--Just to store written thoughts, whatever I am learning. Just for backtracking on what I learnt, in order to prevent "reinventing the wheel".-->
 
-<details>
+<details markdown="1">
   <summary>my journey of building typemint</summary>
   <br>
 
@@ -12,7 +12,7 @@
   -- however, i want to have control over what i am typing, like i want some twitter feeds, some humerious and laughing stuff, and also keep track of the words i am messing up and bring up those words as often as possible and also show me, which words and characters i am messing up on, basically, analytics of my choice. <br>
 </details>
 
-<details>
+<details markdown="1">
   <summary>my journey of building TicTacToc</summary>
   <br>
 
@@ -24,7 +24,7 @@
   -- learnt a lot about low level design patterns, when applying the undo-redo functionality, which, if we don't be conscious about, has a potential of spiraling the dependencies out of control. <br>
 </details>
 
-<details>
+<details markdown="1">
   <summary>Load Balancers</summary>
   <br>
 
@@ -54,7 +54,7 @@
 
 </details>
 
-<details>
+<details markdown="1">
   <summary>My 100 days of code journey (not completed)</summary>
   <br>
   
