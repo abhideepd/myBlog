@@ -57,8 +57,8 @@ Sometimes I feel the urge to write, I write.
 
 </details>
 
-<details markdown="2">
-  <summary>My 100 days of code journey (not completed)</summary>
+<details markdown="3">
+  <summary>My 100 days of code journey</summary>
   <br>
   
   *update : didn't complete it. Meaning, I am still consistent, however, just don't update it. Because, the purpose of this, is being consistent, which isn't my problem, atleast with computers and stuff, my core problem is, time management, in general, like how to utilize my time through out the day and in the end of the day or week, I don't feel, I hadn't done enough, I wasted a lot.... This log won't be fixing that problem. This however, did help me find out or inspired me to keep track of what I was doing and have been doing all week*
@@ -80,7 +80,7 @@ Sometimes I feel the urge to write, I write.
 **Thoughts:** Well, its a pretty basic tree question, where nodes of the tree are given, and a list of queries are given, from a to b, and we have to find the distance between them. So, the most basic bruteforce way of approaching the problem is, to find the lca, and add the distance from lca to a and lca to b. In order to optimize this solution, we use the binary jumping technique. However, the challenging part arrived, when, all the test cases were passing except one of them. This puzzled me a lot, reverifying, that I have applied the technique and its covering all the edge cases. Then, while being in the rabbit hole, I found out, about the euler tour technique. However, before using this technique, to optimize my solution, I decided, to give it some more trial, as the time was just some milli seconds appart. While disecting the binary jumping solution, I did everything I could, like use arrays, reduce variables all that I can, still, no good. Then I suddenly, got access to a memory, I had read somewhere, that, in most cases, recursive approach takes more time than iterative approach, because, the heap needs to be cleared. That's when I thought, why not do the dfs, iteratively! rather than using the heap. So at first, I used the collections library for Stack, which didn't work. Then I created a new data structure, using array as the datastructure for my custom stack interface, I came close, still, not 100% Accepted. So I for some reason, assumed, that array is a memory block, and in order to assign it, there might be some time utilized to find that block. So, why not replace array with Linked List, that way, this time might be saved! And voila! It worked! I checked it multiple times, and its passing all the test cases! Although, I am not completely sure, what's the reason for the recursive solution and the Array or collections datastructure not working....
 
 **Link to work:** Well, I haven't uploaded the code yet, however, pasting it below
-<details markdown="1">
+<details markdown="2">
   <summary>Accepted Solution</summary>
   
   ```java
@@ -358,7 +358,7 @@ public class DistanceQueriesCSES {
 }
 ```
 </details>
-<details markdown="1">
+<details markdown="2">
   <summary>Some other experiments, helping me to arrive to the solution</summary>
   
   ```java
@@ -1128,7 +1128,7 @@ public class DistanceQueries {
 **Thoughts:** Really enjoyed solving this problem, this problem led me to explore the concept of binary jumping. Understanding this problem is easy, however, the trick is in the implementation, where we have to optimize space as well as time. If you see the question, you can clearly, see the recursive pattern. I did too! and used the recursion. And as expected, started failing when the test cases were going to the higher limit. So, too the next step, memoised the recursive steps (dynamic programming). So, as expected, this went far, however started failing for higher limit test cases(higher than the previous), due to space. See, in the question, the value of k is 10^10, and arrays can't go with size that high. So, initially, I was surprised, because, I sincerely thought, this was a small problem, why is it failing, took multiple attempts to solve it, even tried iterative dp and tried to minimize the array space as much as possible, however, I wasn't able to get all the test cases accepted. So, I started researching the solutions, since editorial is not there. Then, I came across binary jumping. Once, I started taking this problem as a graph problem, lots of roadblocks automatically broke. First, I used floyd, circle finding algorithm (its not that complicated, infact highly intuitive. refer this), proceeded to find cycle of the input nodes, store them in hashset, then for each node, I calculated the solution and found the max. It passed nearly all the test, but not all! I explored, as to where I went wrong, I used this visualizer to analyse the input, and instantly got to know, where I went wrong, I assumed, that the whole graph, will be a single connected component, however, this input contained multiple connected components. So, now if I only use floyd's algorithm to solve, I would have to traverse and save each cycle, the cycle's sum and then proceed, which will make it complex and also, time complexity will be compromised (first, in order to search, if the nodes are in cycle or not, we will have to go through all the cycles, saved in hashset). Therefore, used the plain old, binary jumping, in its simplest form, and voila! it worked. If you are getting a bit confused reading this, I understand, I haven't explained in great detail and skipped the deeper parts, as its a rough high level overview. However, I have uploaded the three big approaches I was working on, which I feel, is better than the big ass explaination.
 
 **Link to work:** Well, I haven't uploaded the code yet, however, pasting it below
-<details markdown="1">
+<details markdown="2">
   <summary>Simple Recursive Approach</summary>
 
   ```java
@@ -1154,7 +1154,7 @@ class Solution {
 }
   ```
 </details>
-<details markdown="1">
+<details markdown="2">
   <summary>Recursive Memoisation Approach</summary>
   
   ```java
@@ -1186,7 +1186,7 @@ class Solution {
 }
   ```
 </details>
-<details markdown="1">
+<details markdown="2">
   <summary>Floyd's algorithm Approach</summary>
 
   ```java
@@ -1297,7 +1297,7 @@ class Solution {
 }
   ```
 </details>
-<details markdown="1">
+<details markdown="2">
   <summary>Binary Jumping Approach</summary>
 
   ```java
@@ -1479,7 +1479,7 @@ class Solution2{
 
 **Link(s) to work**: Below are the implementations I tried.
 
-<details markdown="1">
+<details markdown="2">
   <summary>Non binary jumping technique, passing 30 testcases</summary>
   
   ```java
@@ -1742,7 +1742,7 @@ public class DuffArmy5 {
   ```
 
 </details>
-<details markdown="1">
+<details markdown="2">
   <summary>Accepted Solution</summary>
   
   ```java
@@ -1954,10 +1954,10 @@ Solved the below three algorithmic problems:
 3. [Cyclic Array](https://cses.fi/problemset/task/1191/)
 
 **Thoughts**: 
-<details markdown="1">
+<details markdown="2">
   <summary>Planet Queries 2</summary>
 Well, this question, looks simple, to find the distance of travel, from planet a to b, if it ain't possible, then, print -1. When you apply brute force, you will soon understand that you need ancestor, and thereby if you are a bit familiar with Binary Jumping Alogirithm, you can clearly see the use case here. However, the trick was, for the cycles, that exist, how can we navigate that stuff ? Turns out, its not that hard, if you try artificially on paper, creating the binary jumping matrix, for a graph with trees as well as cycles. A simple implementation of binary jumping solves the problem. After this, I faced another error, what if, in the cycle, the point a is in front of point b, then I have to travel back to point b, for which, I have to take the length of cycle and substract the distance. Well, it took me long time to figure it out, it would not take so much time, if you are familiar with solving graph problems. Overall, this was a nice exercise, to wrap my head around functional graphs and directional graphs with trees and cycles.
-  <details>
+  <details  markdown="1">
     <summary>code</summary>
 
   ```java
@@ -2075,10 +2075,10 @@ public class PlanetQueries2 {
     
   </details>
 </details>
-<details markdown="1">
+<details markdown="2">
   <summary>MaxFlow</summary>
   Well, this was a challenging problem, took me some time to understand and then implement it. First, started with the the bruteforce way, simple, which shows quickly, that you need binary jumping in order to find lca or go the the kth Ancestor of a node, in a tree. However, the question was a bit unique, because, you needed some kind of a prefix sum implementation, since, milk flowing from a to b, goes through lca of a and b too, while doing the final addition in prefix sum, we have to make sure, not to add this value, to the parent of lca. This was a bit challenging to wrap heads around. However, once you start implementing, it becomes quite easy. The prefix sum can be done in two ways, either do a bfs and store the traversal in array, or do a dfs and do the prefix sum, as tail recursion. The later one was actually ingenious, which I found in the editoral. It didn't cross my mind, as to how elegent this method was.!
-  <details>
+  <details  markdown="1">
     <summary>code with bfs</summary>
 
   ```java
@@ -2387,7 +2387,7 @@ public class MaxFlow1 {
 ```
   </details>
 </details>
-<details markdown="1">
+<details markdown="2">
   <summary>Cyclic Array</summary>
 Ngl, this problem fried my brains. It was, like mind expanding shit. It was equivalent to doing "legs" in the gym. I tried a lot of ways of solving this problem, but failed. Until, I gained an insight, to see it as a graph problem. Then, create a binary lifting matrix. After this, create a binarylifting matrix for the length of the subarray. After this, this is the genius part. If you observe, the highest no. of subarrays, are the no. of elements of the arrays, you can't exceed that, same for the lowest no. of subarray, which is one, you can't have less than that (well, or 0). So, why don't we binary search the solution !!! So what we will do is, guess a solution, check this solution, for all the subarrays starting from 0, 1, 2…..n. if the no of elements inside the subarray, exceeds or are same as the size of the array, then that solution is feasible, else it's not. It might be a bit complex to undestand at first, I don’t blame you, it kind of grows on you. Also, I am not an expert in writing editorials :-(
   <details markdown="1">
@@ -2942,7 +2942,7 @@ Solved the below three algorithmic problems:
 2. [Leetcode: Minimim Edge Weights Equilibrium Queries in a Tree](https://leetcode.com/problems/minimum-edge-weight-equilibrium-queries-in-a-tree/description/)
 
 **Thoughts**: 
-<detailsmarkdown="2">
+<details markdown="2">
   <summary>The Bovine Shuffle</summary>
 It’s a problem, complex to understand, however, once you understand it, and have some familiarity with functional graphs and floyd's algorithm, implementation is a breeze. Basically, the answer is sum of all the cycle sizes. Because, those are the positions, which will never be empty after a single shift or n no. of shifts. Any positions, not in a cycle, will get empty if there is atleast 1 shift.
 <details markdown="1">
@@ -3299,7 +3299,7 @@ It’s a problem, complex to understand, however, once you understand it, and ha
   
 </details>
 </details>
-<details>
+<details  markdown="2">
   <summary>Minimim Edge Weights Equilibrium Queries in a Tree:</summary>
 				If you are familiar with binary jumping, then you can tell it right away, becase there are two nodes given, and you need to find the path between the two nodes, and to find the path, you ougth to find the lca of those two nodes. Thereby, lca, means, binary lifting.
 				If you see the constraints, you will notice, the edge weights are constrained at 26, for which you can take a constant array of that size. The use binary lifting to create a matrix, which contains the frequency of the edge weights in respective paths. Then, similar to how you find, the lca, find out the frequency of edge weights in those paths.
@@ -3516,7 +3516,7 @@ It’s a problem, complex to understand, however, once you understand it, and ha
 5. [Watching Mooloo](https://usaco.org/index.php?page=viewproblem2&cpid=1301)
 
 **Thoughts**: 
-<details markdown="1">
+<details markdown="2">
 	<summary>Badge</summary>
 Its an interesting problem, which requires to read the question multiple times, to get a complete picture of the small intrecacies. The problem is essentially, a directional graph, with nodes of a single outdegree, thereby resulting in multiplie connected components with cycles. In order to get a clearer overview, its best, to draw out the test cases, helps in better visualisation. Anyways, if you are familiar with floyd's algo, its easy to figure out, the brute force approach is, call floyd's algo or dfs or any other graph traversal, over each node, and find out, which "visited" node is being visited again. However to optimize it, you need floyd's algo, and mark the nodes, which has been visited, and fill answer nodes, while running the floyd algo. Nodes, which ain't in cycle, will have answer as the first node, from where the cycle starts, and the nodes in cycle will have answer equaling their own node value. While running the floyd's algo, if you find any node, that's already visited, then if you have drawn such a test case, its clear that, for its answer, the answer of that node, which has already been visited, is the answer to this node.
 
@@ -3605,7 +3605,7 @@ Its an interesting problem, which requires to read the question multiple times, 
 
 ```
 </details>
-<details markdown="1">
+<details markdown="2">
 	<summary>Cooperative Games</summary>
 	It’s a very interesting and an important problem, which exponentially helped me, to understand the floyd's algorithm deeply. It initially, seems to be a big ass complex question, but trust me, its peanuts, if you "really" understand the floyd's algo. I would even say, this might be a litmus test, if you understand this algorithm or not. So, first of all, break the groups of friends into 3, let the two group of friends proceed one before the other, and second group getting one extra lead every time (something similar to fast pointer and slow pointer), until the two groups meet and form 1 group, in total there are two groups now. Now, run both the group and they will meet at the finish line (which is the first node, between the non-cycle and nodes in cycle). There is a really cool mathematical explanation, on why this happens, if you see this video, you will easily understand the video as well as the question, like, you can just visually see the solution. (<a href="https://www.youtube.com/watch?v=PvrxZaH_eZ4&ab_channel=Insidecode">Floyd's cycle detection algorithm (Tortoise and hare) - Inside code</a>)
 
@@ -3680,7 +3680,7 @@ importjava.io.BufferedReader;
 ```
 
 </details>
-<details>
+<details  markdown="2">
 	<summary>Watching Mooloo</summary>
 	A really simple puzzle type problem, where, if you observe, for every step, essentially, we have to find, if buying a single day subscription is cheaper than buying a durational subscription, for each of the days, defined. The implementation, was a little bit tricky for me. It’s a unique problem in the sense, understanding the problem and arriving to the solution and understanding the math behind it was simple, however, implementation was where, the maximum time went. Had to incorporate a lot of print statements, in order to debug the errors!
 
@@ -3753,7 +3753,7 @@ Something personal came up, which caused an erratic schedule, which resulted in,
 **Thoughts**:
 Below, are the list of the problems, that I have revised (its a lot):
 
-<details>
+<details  markdown="2">
 	<summary><a href="https://codeforces.com/contest/1556/problem/D">Take a guess</a></summary>
 Its a math trickery problem. Basically, we have to find the kth smallest no, in the series, however, the series is not given. The only thing, we can do is, ask the program for either providing the & of nos. at i and j, else get the "or" value of nos. i and j. We will, however, be given the value of k. So if we somehow find (a+b), (b+c) and (a+c), we will be able to find a. However, since we will only get & and "or", what should we do ? Turns out, you if you are familiar with the below equations, the problems, takes seconds to solve. The math expressions are :<br>
 i) a+b = 2*(a&b)+(a xor  b) <br>
@@ -3816,7 +3816,7 @@ public class TakeAGuess {
  
 ```
 </details>
-<details>
+<details  markdown="2">
 	<summary><a href="https://leetcode.com/problems/maximum-number-of-groups-with-increasing-length/description/">Max. No. of Groups with increasing length</a></summary>
 Leetcode problem. It’s a tricky one, if you dry run and draw stuff, you will guess the pattern. But its one of those unique questions, where you understand the problem, as well as the solution, meaning, figuring out, what's the pattern, however, it still, would be difficult to implement. Its was for me. I was stuck, with the thought, that for creating groups, the frequency should be somehow "atleast" and played a lot around it, however, then I remembered, we can use sum, in order to compensate for the usageLimits larger than the atleast usageLimit. Thereby, arriving towards the solution. I experimented a lot.
 <br>Implementation:
@@ -3927,7 +3927,7 @@ class Solution {
 
 ```
 </details>
-<details>
+<details  markdown="2">
 	<summary><a href="https://codeforces.com/contest/1338/problem/A">Powered Addition</a></summary>
 a tricky question, indeed! But, with hit and trial, it can be figured out, or atleast get some ideas. Like, firstly, there is no need of increasing the value of any array element, more than the max value. Second, the only difference, that's important is, the max difference between the ith and jth number where i&lt;j. Finding the power of 2, of that difference, solves the problem. Finding the power of 2, of that difference, solves the problem.
 <br>Implementation:
@@ -4116,7 +4116,7 @@ public class PoweredAddition {
 ```
 </details>
 
-<details>
+<details  markdown="2">
 	<summary><a href="https://atcoder.jp/contests/abc295/tasks/abc295_d">Three Days</a></summary>
 The question is very easy to understand, however, the solution, either requires considerable practice, math brain, as there is a special trick involved to observe. This really fried my brain. So, for each digit of that no., we xor its place, and store it, if there is a place, where the string is palindrome, then, its place automatically incremented. Yeah, it’s a bit confusing, its best to view the editorial. I had experimented with various approaches, before arriving to the solution, all listed below.
 <br>Implementation:
@@ -4257,7 +4257,7 @@ class Pair{
 }
 ```
 </details>
-<details>
+<details  markdown="2">
 	<summary><a href="https://codeforces.com/contest/1017/problem/D">The Wu</a></summary>
 	The problem is, a bit tricky to understand, however, once you understand the question, its pretty simple to solve. See, since the constraint of k is 100, for any input, you can pretty much, presolve answers and store it in array and then, display those stuff, wrt query, and query size suddenly doesn't have any effect. Else, for each query, there will be computation time wasted. 
 <br>Below are the implementations, I experimented with:
@@ -4375,7 +4375,7 @@ public class TheWu {
 } 
 ```
 </details>
-<details>
+<details  markdown="2">
 	<summary><a href="https://codeforces.com/contest/1851/problem/F">Lisa and the Martians</a></summary>
 This question too, is, kinda simple to understand, however, to solve it, need to be familiar with these kinds of probs. If you ever feel uncontrobly and narcestically good about yourself, I strongly recommend, solving algorithmic problems, it will keep you in place…. Lol! Well, so the train of thought here is, pay attention to the equation, there is a big ass "&" on the equation, so, we can kinda assume, that, to maximize the solution, we need max. no. of 1's. So we first sort the array, and find the lowest xor value, between two nos. This is because, if you recall the xor truth table, then, its 0 for values. Once we get this value, then we find the k, to max out the value, by either multiplying by 2 until k or right shifting until k. Below implementation, contains, almost all the trial errors, I have made :
 
@@ -4565,7 +4565,7 @@ public class LisaAndMartians {
 }
  ```
 </details>
-<details>
+<details  markdown="2">
 	<summary><a href="https://leetcode.com/problems/maximize-the-profit-as-the-salesman/description/">Maximize the Profit as the Salesman</a></summary>
 The question is simple to understand and if familiar with recursion and dp, then its an easy solve. Basically, sort according the the start index, and for every node, recursively find, the max. sale price value and find them max value. However, what if there are multiple nodes in the start index ? You can either loop and traverse the equal start index coordinates, or use binary search to further optimize it by finding the end point of that start index and where the next start index occures. First, you can apply a recursive equation to solve the problem, it will give tle, however, no worries, memoise the solution and you are good to go. 
 <br>Below are my implementation experiements.
@@ -4718,7 +4718,7 @@ class Solution {
 						
 ```
 </details>
-<details>
+<details  markdown="2">
 	<summary><a href="https://leetcode.com/problems/find-the-minimum-possible-sum-of-a-beautiful-array/description/">Find the Minimum Possible Sum of a Beautiful Array</a></summary>
 A simple problem, just some observation, simple to understand and simple to solve really. Just start coding whatever you think, either you will end up solving it, or you will be very very close!
 
@@ -4740,7 +4740,7 @@ class Solution {
 }
 ```
 </details>
-<details>
+<details  markdown="2">
 	<summary><a href="https://leetcode.com/problems/determine-the-minimum-sum-of-a-k-avoiding-array/description/">Determine the Minimum Sum of a k-avoiding Array</a></summary>
 Just a small variation to the above problem. 
 
@@ -4765,7 +4765,7 @@ class Solution {
 }
 ```
 </details>
-<details>
+<details  markdown="2">
 <summary><a href="https://leetcode.com/problems/check-if-strings-can-be-made-equal-with-operations-i/">Check if Strings Can be Made Equal With Operations I</a></summary>
 					Easy to understand problem, no such extra need to know algorithm and datastructure involved, just plain problem solving. The trick is, how you view the problem. The one thing, that really helped me was, first doing brute force of this, because, its very easy to do a brute force and it even works. Then after spending some time, thinking to optimize it, you will figure out how to use maps. As there are no logn algos or datastructures, that can help!! Lol.
 
@@ -4795,7 +4795,7 @@ class Solution {
 }
 ````
 </details>
-<details>
+<details  markdown="2">
 <summary><a href="https://leetcode.com/problems/count-symmetric-integers/">Count Symmetric Integers</a></summary>
 					Well, I am not proud of this solution. Didn't want to give more time here…. As it was during contest and I knew it would pass tc. As you can see, there is a lot of wiggle room, to save tc.
 
@@ -4823,7 +4823,7 @@ class Solution {
 }
 ````
 </details>
-<details>
+<details  markdown="2">
 <summary><a href="https://leetcode.com/problems/find-the-longest-equal-subarray/">Find the Longest Equal Subarray</a></summary>
 					Simple to understand, however, tricky to deliver. Tried multiplie attempts, listed all below. The solution was mesmarising, though, which involves the sliding window concept. Where we slide through the array, and for the element in that index, we delete those elements and see the size of the array left, if its greater than k, the second pointer moves forward, until it normalizes. I understad, the explanation might not be helpful, however, I suggest, for better understanding, see the answer4() below, and try drawing it. If you are able to draw the simulation successfully, you will easily understand the problem
 
@@ -5050,7 +5050,7 @@ class Solution {
 
 ````
 </details>
-<details>
+<details  markdown="2">
 <summary><a href="https://leetcode.com/problems/check-if-strings-can-be-made-equal-with-operations-ii/">Check if Strings Can be Made Equal With Operations II</a></summary>
 					The question, is similar to the I variation of the question, with just a fun twist, instead of i+2 and i-2 position, this time, the dirrerence of swapped elements should be even ! A small observation, solves the problem, see, if an odd no. is added with an even no. it will always result in and odd no. itself, and for even no. it will always result in an even no. therefore, we don't need the place of the alphabet, just to know, is it in odd or even, and then substract its freq. simple! Felt, really good, when I came up with the solution !! Lol.
 
@@ -5105,7 +5105,7 @@ class OddEven{
 }
 ````
 </details>
-<details>
+<details  markdown="2">
 <summary><a href="https://leetcode.com/problems/maximum-sum-of-almost-unique-subarray/">Maximum Sum of Almost Unique Subarray</a></summary>
 					Well, it’s a simple, sliding window problem.
 
@@ -5146,7 +5146,7 @@ class Solution {
 
 ````
 </details>
-<details>
+<details  markdown="2">
 <summary><a href="https://leetcode.com/problems/minimum-operations-to-make-a-special-number/">Minimum Operations to Make a Special Number</a></summary>
 					It’s a simple thought experiment problem, really. If you know, the property of 25 multiplication, like nos. divisible by 25, ends with 00, 25,50,75, this question becomes pretty easy.
 
@@ -5222,7 +5222,7 @@ class Solution {
 
 ````
 </details>
-<details>
+<details  markdown="2">
 <summary><a href="https://leetcode.com/problems/longest-substring-with-at-least-k-repeating-characters/description/">Longest Substring with At Least K Repeating Characters</a></summary>
 					Easy to understand, however, a bit tricky to implement. Experimented a lot here. This problem can be solved in various ways, like sliding window, I used divide and conquer. There are better and smart ways, to deal with this problem than mine.
 
@@ -5345,7 +5345,7 @@ class Solution {
 
 ````
 </details>
-<details>
+<details  markdown="2">
 <summary><a href="https://leetcode.com/problems/count-k-subsequences-of-a-string-with-maximum-beauty/description/">Count K-Subsequences of a String With Maximum Beauty</a></summary>
 					An easy to understand question, somewhat challenging. The first key observation is, k can't be greater than 26. So, find the frequency of arrays, and then use recursion or dp to solve it. You can use lots of other ways. Below is just a snapshot, of the different ways, I have experimented to solve.
 
@@ -5647,7 +5647,7 @@ class Solution {
 
 ````
 </details>
-<details>
+<details  markdown="2">
 <summary><a href="https://leetcode.com/problems/minimum-operations-to-form-subsequence-with-target-sum/description/">Minimum Operations to Form Subsequence With Target Sum</a></summary>
 					Well, since, the array contains only power of 2, values, you can assume, only the nos. greater than the array sum, aren't eligible. After this, sort the array, then substract and see, if you can match the target or not. If you face a road block, then, divide the no. You can also, use bitwise to solve it, basically, for the target, try getting the 1's and 0's from the array! <br>Below are my implementations:
 
@@ -5725,7 +5725,7 @@ class Solution {
 
 ````
 </details>
-<details>
+<details  markdown="2">
 <summary><a href="https://leetcode.com/problems/count-of-interesting-subarrays/description/">Count of Interesting Subarrays</a></summary>
 Good question, with a little bit of familiarity of prefix sum, it can be solved. The bruteforece is quiet intuitive, that you store all the ith values, that fulfils the equation then use double loops to see, which fulfils the second condition and add the answers. In order to remove the double loop, just a thought that, the cnt is added and then moduloed, so, if we store it in hashmap, this essentially fulfils the purpose of double loops, and converting to single loop. This explanation, might seem vague, I suggest, to draw it, and you will be able to figure it out.
 
@@ -5843,7 +5843,7 @@ class Solution {
 }
 ````
 </details>
-<details>
+<details  markdown="2">
 <summary><a href="https://codeforces.com/contest/1872/problem/E">Data Structures Fan</a></summary>
 					This is an advanced bitwise problem, although, understanding the problem is easy, and brute force method can be easily be enforced, however, its not easy to come up with the bitwise solution. Since, I had to have rounds with the editorial and multiple times, draw out the solution, in order to understand and arrive to the solution, I feel, its best, for people to view the official editorial and try drawing out the solution.
 
@@ -6044,7 +6044,7 @@ Upsolved some of the problems, from the virtual contest (leetcode [Weekly Contes
 
 ***
 ***Virtual Contest***
-<details>
+<details  markdown="2">
 <summary><a href="https://leetcode.com/problems/harshad-number/description/">Hashed Number</a></summary>
 Solved it in the contest itself, was a very easy question. <br>
 Implementation:
@@ -6063,7 +6063,7 @@ class Solution {
 }
 ````
 </details>
-<details>
+<details  markdown="2">
 <summary><a href="https://leetcode.com/problems/water-bottles-ii/">Water Bottles II</a></summary>
 Although, it was an easy question, however, wasn't able to solve it in the contest, I don't know why, I think, it was due to anxiety. It is pretty much a simulation problem, do whatever the question is instructing and you will easily arrive to the answer. <br>
 Implementation:
@@ -6085,7 +6085,7 @@ class Solution {
 }
 ````
 </details>
-<details>
+<details markdown="2">
 <summary><a href="https://leetcode.com/problems/count-alternating-subarrays/description/">Count Alternating Subarrays</a></summary>
 Not very easy, however, it takes time to see the pattern, but once you see it, can be easily done. Solved it in the contest. If you observe, if you find an alternating subarray, or take any alternating subarray, it can be divided further, although how much further ? If you draw some examples, then you will figure out, its sum of nos. from 1 to (length of array) i.e. assume, length of the array to be n, no of subarrays, that can be created is n*(n+1)/2. So, taking this observation, iterate through the loop adding the sum, whenever you encounter, there is equal no. and breaking the property of alternating subarray, store the sum and make the sum 0 and continue. After this step, use the formula, dipicted prior, for all the sums, stored in the array, and you are done! <br>
 Implementation:
@@ -6126,7 +6126,7 @@ class Solution {
 ***
 ***Live Contest***
 
-<details>
+<details  markdown="2">
 <summary><a href="https://leetcode.com/problems/lexicographically-smallest-string-after-operations-with-constraint/description/">Lexicographically Smallest String After Operations With Constraint</a></summary>
 Couldn't solve in the contest, however, worse, was easily able to solve after the contest, I guess, I have some kind of anxiety and nerves get the best of me. Moye Moye :(. So, the problem, is quite easy to understand, however, is a little bit tricky to implement. There is a simple observation, suppose, there is a strong "lzzzzzzzzzzz" and k=10, so, there are 10 z's in the string which can be easily converted to a, however, if we reduce l, by 10, we get 'c', so compare these two strings "czzzzzzzzzzz" and "laaaaaaaaaaa" both of them, updated by k value, needless to say, the first string is smaller. So, extrapolating this reasoning, we start with the 1st character of the string and try to reduce it to as low as possible. If k remains, we move ahead, else break the loop. If you understand this observation, with some hit and trial, you can arrive at the solution, with minimal difficulty.<br>
 Implementation:
@@ -6160,7 +6160,7 @@ class Solution {
 }
 ````
 </details>
-<details>
+<details  markdown="2">
 <summary><a href="https://leetcode.com/problems/minimum-operations-to-make-median-of-array-equal-to-k/description/">Minimum Operations to Make Median of Array Equal to K
 </a></summary>
 This problem was also, was unsolvable in the contest, however, to my fucking disappointment, I was able to solve it, right after the contest, that too, like the previous problem, within half an hour, coupled with, writing this update. I really, have to deal with the anxiety man!! The problem, essentially unwraps, based on a small observation. What's the medial ? Its nothing, but the center most element (as mentioned in the question). So, we have to sort the array, there is no other way. After which, the median given, we have to compare it with the median in the array. If the median is greater than the average, then, the elements, prior to the median is smaller, however, we need to check, if the elements post the median are still bigger or not. Traverse accordingly, and add the difference. Its best to simulate this on paper, and you can instantly view the simulation. Once you see it, its easily implementable  <br>
@@ -6207,7 +6207,7 @@ Attempted to upsolve the live contest as well as the virtual contest problem. I 
 **Thoughts:**
 
 ***Live Contest***
-<details>
+<details  markdown="2">
 <summary><a href="https://leetcode.com/problems/minimum-cost-walk-in-weighted-graph/">Minimum Cost Walk in Weighted Graph</a></summary>
 The problem looks frightening and complex, but the reality is a let down, once you observe some key tricks. So, the first trick, is, we have to find the max and, and the most confusing part is, even if you reach from point a to point b, then you can visit other nodes, to further reduce your answer. Well, that's the trick, if you find the lowest value, inside that component, then no matter what you and it with that value, it will either stay the same or reduce further, this is due the the property of and itself, which is true only when both the respective places are true. An off bit, can never be on. So keeping this in mind, we can assume, that, what ever is the total "and" for a component, it will be the lowest. So, keeping this in mind, we simply, find such components with dfs and find the component's and and store them. When we traverse the query, for the solution, then,we simply see, if they belong to the same component or not. If they belong to the same component, then we, give the answer, else, its unreachable!
 <br>
@@ -6390,7 +6390,7 @@ Well tried again, today, however, not with that intensity, to solve [Omask Metro
 **Thoughts:**
 Really enjoyed solving this problem [Minimize Manhattan Distances](https://leetcode.com/problems/minimize-manhattan-distances/description/), learnt a lot of stuff, explaining with details, all my implementations! Hop in!
 
-<details>
+<details  markdown="2">
 <summary>[WA] Implementation 1:</summary>
 Didn't understand the question properly. I was plainly finding the minimum of max distance. However, I missed a small detail, that, I had to find this distance, remove one of the points, from the set of points.
 
@@ -6426,7 +6426,7 @@ class Solution {
 ````
 
 </details>
-<details>
+<details  markdown="2">
 <summary>[TLE] Implementation 2:</summary>
 Corrected, the previous error. Removed each point, got the max distance between two points, and saved the minimum from those points.
 
@@ -6504,7 +6504,7 @@ class Solution {
 ````
 
 </details>
-<details>
+<details  markdown="2">
 <summary>[TLE] Implementation 3:</summary>
 Used priority queue, to optimize.
 
@@ -6552,7 +6552,7 @@ class Solution {
 }
 ````
 </details>
-<details>
+<details  markdown="2">
 <summary>[WA] Implementation 4:</summary>
 Finally, checked out the code of some people, who have solved it, to look where, I am going wrong. Turns out, there was a massive hole, in my understanding! There is a trick to find the max manhattan distance, between two points, which takes o(n) time. Its easily available on the internet. Did a very bad implementation, which eventually caught up in a wrong answer. The imlementation, was so complex, eventuall, I did a fresh implementation and ditched debugging it.
 
@@ -6643,7 +6643,7 @@ class Solution {
 }
 ````
 </details>
-<details>
+<details  markdown="2">
 <summary>[TLE] Honerable Mention</summary>
 This optimized code, for readability, eventually lead me to solution. 
 
@@ -6754,7 +6754,7 @@ class Solution {
 ````
 
 </details>
-<details>
+<details  markdown="2">
 <summary>[AC] Implementation</summary>
 There were some more implementation, which were kind of experiments, which I didn't want to mention.
 
@@ -6932,7 +6932,7 @@ Gave a Leetcode contest [Weekly Contest 393], well, better than previous contest
 
 **Thoughts:**
 Details about the solved problems are:
-<details>
+<details  markdown="2">
 <summary><a href="https://leetcode.com/problems/latest-time-you-can-obtain-after-replacing-characters/description/">Latest Time You Can Obtain After Replacing Characters</a></summary>
 Well, it was a simple problem, was a bit tricky to implement. Looking at the constraints, and getting excited about the harder problems, I just wanted to solved it, and looking at the constraints, was pretty sure, an little optimized brute force solution will pass. and it did! because, more than running the program, i have only 1.5 hrs. to solve 4 questions, therefore, I have to invest as minimal time as possible on these easy problems <br>
 My contest implementation:
@@ -7042,7 +7042,7 @@ class Solution {
 ````
 Not listing the other crazy experiments I did on this problem, after contest.
 </details>
-<details>
+<details  markdown="2">
 <summary><a href="https://leetcode.com/problems/maximum-prime-difference/description/">Maximum Prime Difference</a></summary>
 This was also an easy problem, I found it easier than the above problem. I have to identify the primes in the array and substract the index. How to find the primes? Well, either I can, calculate every no. to find if they are prime or not, or create a sieve, and then found out, the nos. have a limit till 100 however, the array of nos. is huge, so figured, why not store the prime nos. until 100 and proceed!<br>
 My Contest Implementation:
@@ -7120,7 +7120,7 @@ Took a day off, to chill, would count Day 15, again, tomorrow. However, as the r
 Trying to upsolve the contest problem. Wasn't able to solve 2 problems. Currently, trying to solve this problem [Kth Smallest Amount With Single Denomination Combination](https://leetcode.com/problems/kth-smallest-amount-with-single-denomination-combination/description/), the question, is very easy to understand, however, can't figure out, the edge cases, getting stuck in some test cases all the time. Still haven't seen the editorial, since I have some more ideas left, and until, I am out of ideas, I will continue to try.
 
 Some of the implementations, are below (well, all of them are WA :-( )
-<details>
+<details  markdown="2">
 <summary>Impementation 1</summary>
 
 ````java
@@ -7165,7 +7165,7 @@ class Solution {
 ````
 
 </details>
-<details>
+<details  markdown="2">
 <summary>Impementation 2</summary>
 
 ````java
@@ -7211,7 +7211,7 @@ class Solution {
 **Progress**:
 Solved one of them, [Minimum Sum of Values by Dividing Array](https://leetcode.com/problems/minimum-sum-of-values-by-dividing-array/), was not that hard, solved within an hour, without even watching the editorial. This makes me sad, as, why wasn't I able to come up with the solution, in the contest.... Listing down the implementations, which led me to the solution
 
-<details>
+<details  markdown="2">
 <summary>Brute Force [TLE]</summary>
 Well, I knew, it would TLE, wanted to establish the recurrence relation, if its successfully, we just to memoize it, so that states are not visited to do the calculation again, instead, they can be cached. <br>
 
@@ -7246,7 +7246,7 @@ class Solution {
 }
 ````
 </details>
-<details>
+<details  markdown="2">
 <summary>[AC] Correct!</summary>
 Well, memoised the above, found the variables, which were controlling the states, and memoised it and voila!
 
@@ -7297,7 +7297,7 @@ class Solution {
 **Progress**:
 Came close to solving the second problem, [Kth Smallest Amount With Single Denomination Combination](https://leetcode.com/problems/kth-smallest-amount-with-single-denomination-combination/description/). Finally, found out a brute force solution and have gotten some hint, as to where the solution might be.... In the bruteforce method, I am considering all the nos. not unique in the set of coin denominations and storing them in the array. As the lowest coin, will have its kth value by default, insertion of the lowest value from the unique set, will result to decrease in the kth value, which is the last value of the above array and also add k-th value from the smallest coin. We have to do this, until, l<r. Well, the explanation, might be vague, I promise, the code, will be easier to understand. The storing in the array, sorting it, then adding it, and linearly finding it, seems to be a tedious operation. I think, apart from storing, we can do something about the sorting and the traversal, which can be cut down from liner to binary search (log n), lets see, will give it a try again!!! So excited!! My experiments are below:
 
-<details>
+<details markdown="2">
 <summary>[WA] implementation 1</summary>
 
 ````java
@@ -7338,7 +7338,7 @@ class Solution {
 ````
 
 </details>
-<details>
+<details  markdown="2">
 <summary>[WA] implementation 2</summary>
 
 ````java
@@ -7383,7 +7383,7 @@ class Solution {
 ````
 
 </details>
-<details>
+<details  markdown="2">
 <summary>[WA] implementation 3</summary>
 
 ````java
@@ -7432,7 +7432,7 @@ class Solution {
 ````
 
 </details>
-<details>
+<details  markdown="2">
 <summary>[TLE] Proper Bruteforce Solution</summary>
 
 ````java
@@ -7496,7 +7496,7 @@ class Solution {
 
 **Progress**:
 Attempted this problem [Kth Smallest Amount With Single Denomination Combination](https://leetcode.com/problems/kth-smallest-amount-with-single-denomination-combination/description/) again, in the optimized form, using binary search. My algo, currently manages to pass almost 90% of the test cases, however, some edge cases are just troublesome and can't fiture it out, where I am missing. I guess, after today, I will run out of options to experiment and give in to the actual editorial or other user's solution! However, had a really good time with this problem, so many areas of optimizations, I could explore with such minute detail, like choosing to merge the array instead of sorting, since it saves a ton of time for being an O(n) operation as opposed to sorting algorithm being O(nlogn). Apart from this, also, attempted the [Omsk Metro (hard version)](https://codeforces.com/problemset/problem/1843/F2), created a successful brute force solution, understood where the time was being spent, no on the path of creating the optimized solution, facing some road blocks, however, I feel optimistic, that I will overcome it! Listed my implementations below
-<details>
+<details  markdown="2">
 <summary>Implementations for Omsk Metro (hard version)</summary>
 my bruteforce implementation [TLE]:
 
@@ -8058,7 +8058,7 @@ public class OmaskMetro3 {
 ````
 
 </details>
-<details>
+<details  markdown="2">
 <summary>Implementations for Kth Smallest Amount With Single Denomination Combination</summary>
 optimized binary search solution [WA]:
 
@@ -8185,13 +8185,13 @@ Gave a shot to those two problems again, I think, I am addicted to solving them,
 the problems, attempted as follows:
 ***
 Yesterday's Problems:
-<details>
+<details  markdown="2">
 <summary>Omask Metro (Hard)</summary> 
 Link: https://codeforces.com/problemset/problem/1843/F2
 <br>
 Well, trying to understand the existing solutions and editorials, I am getting the idea where I went wrong, previously. However, still need to figure out what's missing, like, I feel, I am missing some part of the puzzle. What I was doing wrong is, we have to find, in any series of the tree, the max and min, and I was adding two trees max and min, without any thought, which won't work... so lets see...
 </details>
-<details>
+<details  markdown="2">
 <summary>Kth Smallest Amount with single denomination combination</summary>
 Link: https://leetcode.com/problems/kth-smallest-amount-with-single-denomination-combination/description/
 <br>
@@ -8309,7 +8309,7 @@ class Solution {
 
 ***
 Contest Problems: (which I solved)
-<details>
+<details  markdown="2">
 <summary>Count the Number of Special Characters I</summary>
 Link: https://leetcode.com/problems/count-the-number-of-special-characters-i/description/
 <br>
@@ -8343,7 +8343,7 @@ class Solution {
 ````
 
 </details>
-<details>
+<details  markdown="2">
 <summary>Count the Number of Special Characters II</summary>
 Link:https://leetcode.com/problems/count-the-number-of-special-characters-ii/description/
 <br>
@@ -8386,7 +8386,7 @@ class Solution {
 
 **Progress**:
 Upsolved, one of the problem, well, pretty easily. The other problem, turns out, is djextra's algorithm. Therefore, before solving it, I am planning to solve some extra problems, in order to understand the concepts intuitively.<br>
-<details>
+<details  markdown="2">
 <summary>
 <a href="https://leetcode.com/problems/minimum-number-of-operations-to-satisfy-conditions/description/">Upsolved solution of 3122. Minimum Number of Operations to Satisfy Conditions</a>
 </summary>
@@ -8528,7 +8528,7 @@ Continued to the learning process of dijextra. There are some stuff, that needs 
 **Implementation**:
 <br>
 Weekly Contest 395:
-<details>
+<details  markdown="2">
 	<summary>Find the Integer Added to Array I</summary>
 	<br>
 	link: https://leetcode.com/problems/find-the-integer-added-to-array-i/description/
@@ -8545,7 +8545,7 @@ Weekly Contest 395:
   
 </details>
 
-<details>
+<details  markdown="2">
 	<summary>Find the Integer Added to Array II</summary>
 	<br>
 	link: https://leetcode.com/problems/find-the-integer-added-to-array-ii/description/
@@ -8593,7 +8593,7 @@ Advice: Try the brute force approach on pen and paper, and write a bruteforce al
     
 </details>
 
-<details>
+<details  markdown="2">
 <summary>Minimum Array End</summary>
 <br>
 link: https://leetcode.com/problems/minimum-array-end/description/
@@ -8625,7 +8625,7 @@ Well, finally upsolved this leetcode contest problem [Kth Smallest Amount With S
 **Implementation**:
 So, the question is quite simple to understand. There is an array of nos. we have to find the no. at the kth place. The no. series is formed as such, each no. should be divisible by atleast one no. from the array and there should be no repetation of nos. So, quite easy, right ? Store the distinct multimple of each no. and find the kth no. Except, that, the k value, which is input, has a contraint of 2*10^9. So neither we can store so many elements, nor can we traverse till this, as will face, TLE and hit memory limit. So, we have no option other than, using binary search to guess the answer, see, if the answer's position is "k" or not. How will we know that ? With the inclusion-exclusion formula (google it, given pretty clearly), for which we, require lcm of all the possible combinations of nos. So, once we store the lcms of this combination, we run through each no. to find if it's k or not. And that's how, we arrive to the solution.
 
-<details>
+<details  markdown="2">
 <summary>
 	Implementation
 </summary>
@@ -8708,7 +8708,7 @@ class Solution {
 2. Also, upsolved this problem from Sunday's contest [Find the Median of the Uniqueness Array](https://leetcode.com/problems/find-the-median-of-the-uniqueness-array/description/). Well, question is, a little not easy to understand, however not hard, you just need to spend some time with the question, to understand. So, it seems to easy, at first, with a brute force sol. and it passes 90% of Test cases. However, looking at the contraints, its evident that n^2 algorithm, won't cut it, in any freaking way, atleast an logarithmic sol (nLogn) sol. is required. So, yeah, binary search or sorting related, however, since, the answer is order dependent of the input, so no sorting and somehow, implement binary search. Solution with explaation explained below, in details.
 
 **Implementation**:
-<details>
+<details  markdown="2">
 <br>
 <summary>Minimum Array End</summary>
 So the first basic observation is, x, will remain intact, there will be no change there, so, you can deduce, all the nos. in the array are to me greater than x, in order to keep the bits of x intact. So in the brute force way, we can increase x value and "or" with x, in order change the number as well as keep the x's value intact. However, the constraints are huge. So, why not, travese the bits of the no. instead ? because, its limited to 64 binary digits, right ? Yup!. So, keeping the bits of x intact, we will traverse the x's bits, and when '1' comes, skip it, and then traverse it... If you pen and paperify the bruteforce approach, it would be easier to understand the binary approach.
@@ -8755,7 +8755,7 @@ class Solution {
 ````
 
 </details>
-<details>
+<details  markdown="2">
 <summary>
 Find the Median of the Uniqueness Array
 </summary>
@@ -8872,7 +8872,7 @@ anchorTags.forEach(anchor => {
 });
 ````
 
-<details>
+<details  markdown="2">
 <summary>Some of my experiemnts</summary>
 
 ````javascript
@@ -8919,7 +8919,7 @@ Open, inspect elements and search "var ytInitialData ", and just corelate it wit
 3. Gave today's leetcode contest, could only solve 2, however, came very very close to solve the third problem, however, just couldn't do it, moye moye
 
 **Implementation:**
-<details>
+<details  markdown="2">
  <summary>
 	 Valid Word
  </summary>
@@ -9017,7 +9017,7 @@ easy questions, however, irritating to implement.
 ````
 
 </details>
-<details>
+<details  markdown="2">
 	<summary>
 		Minimum Number of Operations to Make Word K-Periodic
 	</summary>
@@ -9059,7 +9059,7 @@ class Solution {
 1. completed, one of the contest problem [Minimum Length of Anagram Concatenation](https://leetcode.com/problems/minimum-length-of-anagram-concatenation/), had tried a lot in contest, however, was very close, I intuitively knew the solution however wasn't able to express it. Turns out, that gap was gcd. However, gcd was also incorrect because of a small technical glitch in the question termed "concatenation". Therefore, it turned into a simpler approach problem, basically bruteforce. Shit man, could have solved it in the contest..
 
 **Implementation:**
-<details>
+<details  markdown="2">
  <summary>
 	 Minimum Length of Anagram Concatenation
  </summary>
