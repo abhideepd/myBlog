@@ -28,7 +28,7 @@
   <summary>Load Balancers</summary>
   <br>
 
-  # Load Balancer
+  ## Load Balancer
 
 - such a cool name!! can be used in an email address or game names
 
@@ -54,7 +54,7 @@
 
 </details>
 
-<details markdown="1">
+<details markdown="2">
   <summary>My 100 days of code journey (not completed)</summary>
   <br>
   
@@ -77,7 +77,7 @@
 **Thoughts:** Well, its a pretty basic tree question, where nodes of the tree are given, and a list of queries are given, from a to b, and we have to find the distance between them. So, the most basic bruteforce way of approaching the problem is, to find the lca, and add the distance from lca to a and lca to b. In order to optimize this solution, we use the binary jumping technique. However, the challenging part arrived, when, all the test cases were passing except one of them. This puzzled me a lot, reverifying, that I have applied the technique and its covering all the edge cases. Then, while being in the rabbit hole, I found out, about the euler tour technique. However, before using this technique, to optimize my solution, I decided, to give it some more trial, as the time was just some milli seconds appart. While disecting the binary jumping solution, I did everything I could, like use arrays, reduce variables all that I can, still, no good. Then I suddenly, got access to a memory, I had read somewhere, that, in most cases, recursive approach takes more time than iterative approach, because, the heap needs to be cleared. That's when I thought, why not do the dfs, iteratively! rather than using the heap. So at first, I used the collections library for Stack, which didn't work. Then I created a new data structure, using array as the datastructure for my custom stack interface, I came close, still, not 100% Accepted. So I for some reason, assumed, that array is a memory block, and in order to assign it, there might be some time utilized to find that block. So, why not replace array with Linked List, that way, this time might be saved! And voila! It worked! I checked it multiple times, and its passing all the test cases! Although, I am not completely sure, what's the reason for the recursive solution and the Array or collections datastructure not working....
 
 **Link to work:** Well, I haven't uploaded the code yet, however, pasting it below
-<details>
+<details markdown="1">
   <summary>Accepted Solution</summary>
   
   ```java
@@ -355,7 +355,7 @@ public class DistanceQueriesCSES {
 }
 ```
 </details>
-<details>
+<details markdown="1">
   <summary>Some other experiments, helping me to arrive to the solution</summary>
   
   ```java
@@ -1125,7 +1125,7 @@ public class DistanceQueries {
 **Thoughts:** Really enjoyed solving this problem, this problem led me to explore the concept of binary jumping. Understanding this problem is easy, however, the trick is in the implementation, where we have to optimize space as well as time. If you see the question, you can clearly, see the recursive pattern. I did too! and used the recursion. And as expected, started failing when the test cases were going to the higher limit. So, too the next step, memoised the recursive steps (dynamic programming). So, as expected, this went far, however started failing for higher limit test cases(higher than the previous), due to space. See, in the question, the value of k is 10^10, and arrays can't go with size that high. So, initially, I was surprised, because, I sincerely thought, this was a small problem, why is it failing, took multiple attempts to solve it, even tried iterative dp and tried to minimize the array space as much as possible, however, I wasn't able to get all the test cases accepted. So, I started researching the solutions, since editorial is not there. Then, I came across binary jumping. Once, I started taking this problem as a graph problem, lots of roadblocks automatically broke. First, I used floyd, circle finding algorithm (its not that complicated, infact highly intuitive. refer this), proceeded to find cycle of the input nodes, store them in hashset, then for each node, I calculated the solution and found the max. It passed nearly all the test, but not all! I explored, as to where I went wrong, I used this visualizer to analyse the input, and instantly got to know, where I went wrong, I assumed, that the whole graph, will be a single connected component, however, this input contained multiple connected components. So, now if I only use floyd's algorithm to solve, I would have to traverse and save each cycle, the cycle's sum and then proceed, which will make it complex and also, time complexity will be compromised (first, in order to search, if the nodes are in cycle or not, we will have to go through all the cycles, saved in hashset). Therefore, used the plain old, binary jumping, in its simplest form, and voila! it worked. If you are getting a bit confused reading this, I understand, I haven't explained in great detail and skipped the deeper parts, as its a rough high level overview. However, I have uploaded the three big approaches I was working on, which I feel, is better than the big ass explaination.
 
 **Link to work:** Well, I haven't uploaded the code yet, however, pasting it below
-<details>
+<details markdown="1">
   <summary>Simple Recursive Approach</summary>
 
   ```java
@@ -1151,7 +1151,7 @@ class Solution {
 }
   ```
 </details>
-<details>
+<details markdown="1">
   <summary>Recursive Memoisation Approach</summary>
   
   ```java
@@ -1183,7 +1183,7 @@ class Solution {
 }
   ```
 </details>
-<details>
+<details markdown="1">
   <summary>Floyd's algorithm Approach</summary>
 
   ```java
@@ -1294,7 +1294,7 @@ class Solution {
 }
   ```
 </details>
-<details>
+<details markdown="1">
   <summary>Binary Jumping Approach</summary>
 
   ```java
@@ -1476,7 +1476,7 @@ class Solution2{
 
 **Link(s) to work**: Below are the implementations I tried.
 
-<details>
+<details markdown="1">
   <summary>Non binary jumping technique, passing 30 testcases</summary>
   
   ```java
@@ -1739,7 +1739,7 @@ public class DuffArmy5 {
   ```
 
 </details>
-<details>
+<details markdown="1">
   <summary>Accepted Solution</summary>
   
   ```java
@@ -1951,7 +1951,7 @@ Solved the below three algorithmic problems:
 3. [Cyclic Array](https://cses.fi/problemset/task/1191/)
 
 **Thoughts**: 
-<details>
+<details markdown="1">
   <summary>Planet Queries 2</summary>
 Well, this question, looks simple, to find the distance of travel, from planet a to b, if it ain't possible, then, print -1. When you apply brute force, you will soon understand that you need ancestor, and thereby if you are a bit familiar with Binary Jumping Alogirithm, you can clearly see the use case here. However, the trick was, for the cycles, that exist, how can we navigate that stuff ? Turns out, its not that hard, if you try artificially on paper, creating the binary jumping matrix, for a graph with trees as well as cycles. A simple implementation of binary jumping solves the problem. After this, I faced another error, what if, in the cycle, the point a is in front of point b, then I have to travel back to point b, for which, I have to take the length of cycle and substract the distance. Well, it took me long time to figure it out, it would not take so much time, if you are familiar with solving graph problems. Overall, this was a nice exercise, to wrap my head around functional graphs and directional graphs with trees and cycles.
   <details>
@@ -2072,7 +2072,7 @@ public class PlanetQueries2 {
     
   </details>
 </details>
-<details>
+<details markdown="1">
   <summary>MaxFlow</summary>
   Well, this was a challenging problem, took me some time to understand and then implement it. First, started with the the bruteforce way, simple, which shows quickly, that you need binary jumping in order to find lca or go the the kth Ancestor of a node, in a tree. However, the question was a bit unique, because, you needed some kind of a prefix sum implementation, since, milk flowing from a to b, goes through lca of a and b too, while doing the final addition in prefix sum, we have to make sure, not to add this value, to the parent of lca. This was a bit challenging to wrap heads around. However, once you start implementing, it becomes quite easy. The prefix sum can be done in two ways, either do a bfs and store the traversal in array, or do a dfs and do the prefix sum, as tail recursion. The later one was actually ingenious, which I found in the editoral. It didn't cross my mind, as to how elegent this method was.!
   <details>
@@ -2222,7 +2222,7 @@ public class MaxFlow2 {
   ```
 
   </details>
-  <details>
+  <details markdown="1">
     <summary>code without bfs</summary>
 
   ```java
@@ -2384,10 +2384,10 @@ public class MaxFlow1 {
 ```
   </details>
 </details>
-<details>
+<details markdown="1">
   <summary>Cyclic Array</summary>
 Ngl, this problem fried my brains. It was, like mind expanding shit. It was equivalent to doing "legs" in the gym. I tried a lot of ways of solving this problem, but failed. Until, I gained an insight, to see it as a graph problem. Then, create a binary lifting matrix. After this, create a binarylifting matrix for the length of the subarray. After this, this is the genius part. If you observe, the highest no. of subarrays, are the no. of elements of the arrays, you can't exceed that, same for the lowest no. of subarray, which is one, you can't have less than that (well, or 0). So, why don't we binary search the solution !!! So what we will do is, guess a solution, check this solution, for all the subarrays starting from 0, 1, 2…..n. if the no of elements inside the subarray, exceeds or are same as the size of the array, then that solution is feasible, else it's not. It might be a bit complex to undestand at first, I don’t blame you, it kind of grows on you. Also, I am not an expert in writing editorials :-(
-  <details>
+  <details markdown="1">
     <summary>code</summary>
 
   ```java
@@ -2596,7 +2596,7 @@ public class CyclicArray1 {
 
   ```
   </details>
-  <details>
+  <details markdown="1">
     <summary>a small view, of my experiments</summary>
 
   ```java
@@ -2939,10 +2939,10 @@ Solved the below three algorithmic problems:
 2. [Leetcode: Minimim Edge Weights Equilibrium Queries in a Tree](https://leetcode.com/problems/minimum-edge-weight-equilibrium-queries-in-a-tree/description/)
 
 **Thoughts**: 
-<details>
+<detailsmarkdown="2">
   <summary>The Bovine Shuffle</summary>
 It’s a problem, complex to understand, however, once you understand it, and have some familiarity with functional graphs and floyd's algorithm, implementation is a breeze. Basically, the answer is sum of all the cycle sizes. Because, those are the positions, which will never be empty after a single shift or n no. of shifts. Any positions, not in a cycle, will get empty if there is atleast 1 shift.
-<details>
+<details markdown="1">
 <summary>Implementation:</summary>
   
 ```java
@@ -3513,7 +3513,7 @@ It’s a problem, complex to understand, however, once you understand it, and ha
 5. [Watching Mooloo](https://usaco.org/index.php?page=viewproblem2&cpid=1301)
 
 **Thoughts**: 
-<details>
+<details markdown="1">
 	<summary>Badge</summary>
 Its an interesting problem, which requires to read the question multiple times, to get a complete picture of the small intrecacies. The problem is essentially, a directional graph, with nodes of a single outdegree, thereby resulting in multiplie connected components with cycles. In order to get a clearer overview, its best, to draw out the test cases, helps in better visualisation. Anyways, if you are familiar with floyd's algo, its easy to figure out, the brute force approach is, call floyd's algo or dfs or any other graph traversal, over each node, and find out, which "visited" node is being visited again. However to optimize it, you need floyd's algo, and mark the nodes, which has been visited, and fill answer nodes, while running the floyd algo. Nodes, which ain't in cycle, will have answer as the first node, from where the cycle starts, and the nodes in cycle will have answer equaling their own node value. While running the floyd's algo, if you find any node, that's already visited, then if you have drawn such a test case, its clear that, for its answer, the answer of that node, which has already been visited, is the answer to this node.
 
@@ -3602,7 +3602,7 @@ Its an interesting problem, which requires to read the question multiple times, 
 
 ```
 </details>
-<details>
+<details markdown="1">
 	<summary>Cooperative Games</summary>
 	It’s a very interesting and an important problem, which exponentially helped me, to understand the floyd's algorithm deeply. It initially, seems to be a big ass complex question, but trust me, its peanuts, if you "really" understand the floyd's algo. I would even say, this might be a litmus test, if you understand this algorithm or not. So, first of all, break the groups of friends into 3, let the two group of friends proceed one before the other, and second group getting one extra lead every time (something similar to fast pointer and slow pointer), until the two groups meet and form 1 group, in total there are two groups now. Now, run both the group and they will meet at the finish line (which is the first node, between the non-cycle and nodes in cycle). There is a really cool mathematical explanation, on why this happens, if you see this video, you will easily understand the video as well as the question, like, you can just visually see the solution. (<a href="https://www.youtube.com/watch?v=PvrxZaH_eZ4&ab_channel=Insidecode">Floyd's cycle detection algorithm (Tortoise and hare) - Inside code</a>)
 
