@@ -59,6 +59,6 @@ Sometimes I feel the urge to write, I write.
 
 <details markdown="3">
   <summary>My 100 days of code journey</summary>
-  -- link to my whole experience: [link](https://abhideepd.github.io/100-days-of-code/)
+  -- link to my whole experience: https://abhideepd.github.io/100-days-of-code/
 
 </details>
