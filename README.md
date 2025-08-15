@@ -19,7 +19,8 @@ Sometimes I feel the urge to write, I write.
   <summary>my journey of building TicTacToc</summary>
   <br>
 
-  -- link https://abhideepd.github.io/Tic-Tac-Toe/ <br>
+  -- [app link](https://abhideepd.github.io/Tic-Tac-Toe/) <br>
+  -- [repo link](https://github.com/abhideepd/Tic-Tac-Toe) <br>
   -- three modes, computer vs computer, manual, against computer <br>
   -- no single users other than friends <br>
   -- learnt a lot about angular, deployemnt to remote repo and finally deploying to github pages. <br>
