@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.2/marked.min.js"></script>
+    <style>
+        .blog-content h1, .blog-content h2, .blog-content h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        .blog-content h1 { font-size: 2rem; }
+        .blog-content h2 { font-size: 1.5rem; }
+        .blog-content h3 { font-size: 1.25rem; }
+        .blog-content p { margin-bottom: 1rem; }
+        .blog-content ul, .blog-content ol { margin-bottom: 1rem; padding-left: 2rem; }
+        .blog-content code { background: #f3f4f6; padding: 0.2rem 0.4rem; border-radius: 0.25rem; }
+        .blog-content pre { background: #1f2937; color: #f9fafb; padding: 1rem; border-radius: 0.5rem; margin: 1rem 0; overflow-x: auto; }
+        .blog-content blockquote { border-left: 4px solid #3b82f6; padding-left: 1rem; margin: 1rem 0; font-style: italic; }
+        .fade-in { opacity: 0; animation: fadeIn 0.3s ease-in forwards; }
+        @keyframes fadeIn { to { opacity: 1; } }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">My Blogs</h1>
+            <p class="text-gray-600 hidden">Thoughts, ideas, and stories</p>
+        </header>
+
+        <div id="blog-list" class="space-y-6">
+            <div id="loading" class="text-center py-8">
+                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto"></div>
+                <p class="mt-4 text-gray-600">Loading blogs...</p>
+            </div>
+        </div>
+
+        <div id="blog-view" class="hidden">
+            <button id="back-btn" class="mb-6 flex items-center text-blue-600 hover:text-blue-800 transition-colors">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back to all posts
+            </button>
+            <article id="blog-content" class="blog-content bg-white rounded-lg shadow-md p-8"></article>
+        </div>
+    </div>
+
+    <script>
+        const BLOG_CONFIG = {
+            files: [
+                'LoadBalancers',
+                'ticTacToe',
+                'log'
+            ],
+            folder: 'myBlogs'
+        };
+
+        let blogPosts = [];
+
+        const blogList = document.getElementById('blog-list');
+        const blogView = document.getElementById('blog-view');
+        const blogContent = document.getElementById('blog-content');
+        const backBtn = document.getElementById('back-btn');
+        const loading = document.getElementById('loading');
+
+        async function loadBlogPosts() {
+            try {
+                const posts = [];
+                
+                for (const filename of BLOG_CONFIG.files) {
+                    try {
+                        const response = await fetch(`${BLOG_CONFIG.folder}/${filename}.md`);
+                        if (!response.ok) {
+                            console.warn(`Could not load ${filename}.md`);
+                            continue;
+                        }
+                        
+                        const markdown = await response.text();
+                        const post = parseMarkdownPost(markdown, filename);
+                        posts.push(post);
+                    } catch (error) {
+                        console.warn(`Error loading ${filename}.md:`, error);
+                    }
+                }
+                
+                return posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+            } catch (error) {
+                console.error('Error loading blog posts:', error);
+                return [];
+            }
+        }
+
+        function parseMarkdownPost(markdown, filename) {
+            const lines = markdown.split('\n');
+            let frontmatter = {};
+            let content = markdown;
+            
+            if (lines[0] === '---') {
+                const frontmatterEnd = lines.findIndex((line, index) => index > 0 && line === '---');
+                if (frontmatterEnd > 0) {
+                    const frontmatterLines = lines.slice(1, frontmatterEnd);
+                    content = lines.slice(frontmatterEnd + 1).join('\n');
+                    
+                    frontmatterLines.forEach(line => {
+                        const [key, ...valueParts] = line.split(':');
+                        if (key && valueParts.length > 0) {
+                            const value = valueParts.join(':').trim().replace(/^["']|["']$/g, '');
+                            frontmatter[key.trim()] = value;
+                        }
+                    });
+                }
+            }
+            
+            if (!frontmatter.title) {
+                const titleMatch = content.match(/^#\s+(.+)/m);
+                frontmatter.title = titleMatch ? titleMatch[1] : filename.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+            }
+            
+            if (!frontmatter.summary) {
+                const paragraphs = content.split('\n\n').filter(p => !p.startsWith('#') && p.trim().length > 50);
+                frontmatter.summary = paragraphs[0] ? paragraphs[0].substring(0, 150) + '...' : 'No summary available.';
+            }
+            
+            if (!frontmatter.date) {
+                frontmatter.date = new Date().toISOString().split('T')[0];
+            }
+            
+            return {
+                id: filename,
+                title: frontmatter.title,
+                summary: frontmatter.summary,
+                date: frontmatter.date,
+                content: content.trim()
+            };
+        }
+
+        async function init() {
+            blogPosts = await loadBlogPosts();
+            
+            if (blogPosts.length === 0) {
+                showError('No blog posts found. Make sure your markdown files are in the "blogs" folder and listed in the configuration.');
+                return;
+            }
+            
+            displayBlogList();
+            
+            backBtn.addEventListener('click', () => {
+                showBlogList();
+            });
+        }
+
+        function displayBlogList() {
+            loading.style.display = 'block';
+            
+            setTimeout(() => {
+                loading.style.display = 'none';
+                
+                if (blogPosts.length === 0) {
+                    blogList.innerHTML = '<div class="text-center py-8 text-gray-600">No blog posts found.</div>';
+                    return;
+                }
+                
+                const blogCardsHTML = blogPosts.map(post => `
+                    <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer fade-in" onclick="showBlogPost('${post.id}')">
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h2 class="text-xl font-bold text-gray-800 hover:text-blue-600 transition-colors">${post.title}</h2>
+                                <span class="text-sm text-gray-500 hidden">${formatDate(post.date)}</span>
+                            </div>
+                            <p class="text-gray-600 mb-4">${post.summary}</p>
+                            <div class="flex items-center text-blue-600 text-sm font-medium">
+                                Read more
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+                
+                blogList.innerHTML = blogCardsHTML;
+            }, 300);
+        }
+
+        function showError(message) {
+            loading.style.display = 'none';
+            blogList.innerHTML = `
+                <div class="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
+                    <div class="text-red-600 mb-2">
+                        <svg class="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L5.082 15.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-red-800 mb-2">Error Loading Blog Posts</h3>
+                    <p class="text-red-700">${message}</p>
+                </div>
+            `;
+        }
+
+        function showBlogPost(postId) {
+            const post = blogPosts.find(p => p.id === postId);
+            if (!post) return;
+
+            const htmlContent = marked.parse(post.content);
+            
+            blogContent.innerHTML = `
+                <div class="mb-6">
+                    <h1 class="text-3xl font-bold text-gray-800 mb-2 hidden">${post.title}</h1>
+                    <p class="text-gray-500 hidden">${formatDate(post.date)}</p>
+                </div>
+                ${htmlContent}
+            `;
+
+            blogList.style.display = 'none';
+            blogView.style.display = 'block';
+            blogView.classList.add('fade-in');
+
+            window.scrollTo(0, 0);
+        }
+
+        function showBlogList() {
+            blogView.style.display = 'none';
+            blogList.style.display = 'block';
+            
+            window.scrollTo(0, 0);
+        }
+
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString(undefined, options);
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
