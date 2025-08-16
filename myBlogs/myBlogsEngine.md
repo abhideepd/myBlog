@@ -1,6 +1,6 @@
 Ever wrote something, in markdown, for the purpose of learning while doing, documenting while learning, writing a tutorial, logs, etc, however, wanted to host it automatically in a centralized way, just by uploading the file ? This is the way.
 
-## My Blogs Engine
+# My Blogs Engine
 Well, writing is a good tool, I personally find usefull to think out loud. These later become blogs, that I can revisit at a later date to "travel back in time" to see, how I was thinking at that time. This is also a good way to show people your thought process. 
 
 ## Problem ?
