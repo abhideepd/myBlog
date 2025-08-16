@@ -3,8 +3,8 @@ Taking up this challenge, because, why not ! Really curious, to actually see, ho
 <br>
 
 **visit these exclusive links:**<br>
-***Static Site:*** [<u>*https://abhideepd.github.io/100-days-of-code*</u>](https://abhideepd.github.io/100-days-of-code)<br>
-***entry logs in github Repo:*** [<u>*https://github.com/abhideepd/100-days-of-code/blob/master/log.md*</u>](https://github.com/abhideepd/100-days-of-code/blob/master/log.md)<br>
+***Static Site:*** [<u>*abhideepd.github.io/100-days-of-code*</u>](https://abhideepd.github.io/100-days-of-code)<br>
+***entry logs in github Repo:*** [<u>*github.com/abhideepd/100-days-of-code/log.md*</u>](https://github.com/abhideepd/100-days-of-code/blob/master/log.md)<br>
 <br>
 
 *update : didn't complete it. Meaning, I am still consistent, however, just don't update it. Because, the purpose of this, is being consistent, which isn't my problem, atleast with computers and stuff, my core problem is, time management, in general, like how to utilize my time through out the day and in the end of the day or week, I don't feel, I hadn't done enough, I wasted a lot.... This log won't be fixing that problem. This however, did help me find out or inspired me to keep track of what I was doing and have been doing all week*
@@ -17,7 +17,7 @@ Taking up this challenge, because, why not ! Really curious, to actually see, ho
 
 **Thoughts:** Well, this will help me stay accountable. I had done this challenge previously. Although, its was a bit tough, still managed to stay alive until the 35th day, then had to end it due to a health sanfu.
 
-**Link to work:** [My Twitter Post](https://twitter.com/BHIDEEP/status/1774741988182532345)
+**Link to work:** [My Twitter Post](twitter.com/BHIDEEP/status/1774741988182532345)
 
 ### Day 1: April 2, 2024
 
