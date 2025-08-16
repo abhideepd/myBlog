@@ -1,0 +1,1 @@
+https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/resources/mit6_830f10_lab1/
