@@ -1,0 +1,1 @@
+Structured and Interpretations of Computer Programs. Well, this is the OG. No neet to say more about this. Have always wanted to go into this rabbit hole. 
