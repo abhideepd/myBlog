@@ -1,4 +1,4 @@
-summary: just getting up to speed with all the new stuff, java 8 is doing and what all has been implemented.
+summary: just getting up to speed with all the new stuff, java 8 is doing and what all has been implemented. well, not restricted to java 8 but updated features of java in general.
 
 
 
