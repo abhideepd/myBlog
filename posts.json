@@ -1,0 +1,98 @@
+[
+  {
+    "id": "myBlogsEngine",
+    "title": "My Blogs Engine Architecture",
+    "file": "myBlogs/myBlogsEngine.md",
+    "date": "2026-09-04",
+    "tags": ["meta", "javascript", "projects"],
+    "summary": "Building a zero-backend, markdown-powered static site engine hosted directly on GitHub Pages."
+  },
+  {
+    "id": "LoadBalancers",
+    "title": "Load Balancers: Purpose, Algorithms & Architecture",
+    "file": "myBlogs/LoadBalancers.md",
+    "date": "2026-08-28",
+    "tags": ["system-design", "networking", "scalability"],
+    "summary": "A high-level overview of load balancers: traffic distribution strategies, Layer 4 vs Layer 7 routing, and handling high concurrency."
+  },
+  {
+    "id": "ParkingLotSystemDesign",
+    "title": "Parking Lot Low Level System Design",
+    "file": "myBlogs/ParkingLotSystemDesign.md",
+    "date": "2026-08-20",
+    "tags": ["system-design", "lld", "java", "plantuml"],
+    "summary": "Object-oriented design for a multi-floor parking lot system featuring flexible parking and fee calculation strategies with PlantUML diagrams."
+  },
+  {
+    "id": "ai",
+    "title": "The AI Landscape & LLM Fundamentals",
+    "file": "myBlogs/ai.md",
+    "date": "2026-08-15",
+    "tags": ["ai", "llm", "embeddings", "notes"],
+    "summary": "Curiosity-driven research notes covering vector embeddings, cosine similarity, next-token prediction, pretraining, and instruction tuning."
+  },
+  {
+    "id": "creating_a_database",
+    "title": "Building a Database from Scratch (SimpleDB)",
+    "file": "myBlogs/creating_a_database.md",
+    "date": "2026-08-10",
+    "tags": ["databases", "java", "system-design"],
+    "summary": "Exploring MIT 6.830 SimpleDB architecture: HeapFiles, Catalog, BufferPool, and relational database execution internals."
+  },
+  {
+    "id": "java8features",
+    "title": "Java 8 Features & Functional Patterns",
+    "file": "myBlogs/java8features.md",
+    "date": "2026-07-25",
+    "tags": ["java", "programming", "backend"],
+    "summary": "Deep dive into Lambda expressions, Streams API, Optional, Default methods, and modern Java functional programming idiom."
+  },
+  {
+    "id": "log",
+    "title": "Engineering Log & Learning Notes",
+    "file": "myBlogs/log.md",
+    "date": "2026-07-01",
+    "tags": ["logs", "learning", "journal"],
+    "summary": "Comprehensive daily engineering logs documenting technical challenges, problem-solving paths, and software concepts."
+  },
+  {
+    "id": "ticTacToe",
+    "title": "Building Tic-Tac-Toe: LLD & Undo-Redo Architecture",
+    "file": "myBlogs/ticTacToe.md",
+    "date": "2026-06-18",
+    "tags": ["angular", "lld", "design-patterns"],
+    "summary": "Lessons learned deploying an Angular Tic-Tac-Toe engine to GitHub Pages and implementing low-level design undo/redo Command patterns."
+  },
+  {
+    "id": "chromeExtension",
+    "title": "Chrome Extension Development",
+    "file": "myBlogs/chromeExtension.md",
+    "date": "2026-06-05",
+    "tags": ["javascript", "web", "browser"],
+    "summary": "Building browser extensions with manifest configuration, content scripts, and background workers."
+  },
+  {
+    "id": "craftingInterpreters",
+    "title": "Crafting Interpreters Study Notes",
+    "file": "myBlogs/craftingInterpreters.md",
+    "date": "2026-05-20",
+    "tags": ["compilers", "java", "interpreters"],
+    "summary": "Exploring AST parsing, lexical analysis, tree-walk interpreters, and bytecode VMs."
+  },
+  {
+    "id": "sicp",
+    "title": "SICP: Structure & Interpretation of Computer Programs",
+    "file": "myBlogs/sicp.md",
+    "date": "2026-05-01",
+    "tags": ["cs-theory", "lisp", "foundations"],
+    "summary": "Notes and exercises from the classic MIT computer science text on abstraction and computational process."
+  },
+  {
+    "id": "version_control_fromScratch",
+    "title": "Version Control System from Scratch",
+    "file": "myBlogs/version_control_fromScratch.md",
+    "date": "2026-04-15",
+    "tags": ["git", "system-design", "storage"],
+    "summary": "Deconstructing Git: blob storage, tree objects, commit DAGs, and content-addressable storage mechanisms."
+  }
+]
