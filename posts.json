@@ -1,10 +1,18 @@
 [
   {
+    "id": "differentBroker",
+    "title": "Handling different brokers for a message queue, to receive message and send acknowledgement",
+    "file": "myBlogs/differentBroker.md",
+    "date": "2026-09-07",
+    "tags": [""],
+    "summary": "How to handle different brokers for a message queue, to receive messages and send acknowledgements."
+  },
+  {
     "id": "producerConsumerJava",
     "title": "Bulk upload csv to MySQL",
     "file": "myBlogs/producerConsumerJava.md",
     "date": "2026-09-07",
-    "tags": ["meta", "javascript", "projects"],
+    "tags": [""],
     "summary": "Uploading large csv files to mysql, without running into db memory issues and avoiding memory heap overflow."
   },
   {
