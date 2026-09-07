@@ -1,5 +1,13 @@
 [
   {
+    "id": "producerConsumerJava",
+    "title": "Bulk upload csv to MySQL",
+    "file": "myBlogs/producerConsumerJava.md",
+    "date": "2026-09-07",
+    "tags": ["meta", "javascript", "projects"],
+    "summary": "Uploading large csv files to mysql, without running into db memory issues and avoiding memory heap overflow."
+  },
+  {
     "id": "myBlogsEngine",
     "title": "My Blogs Engine Architecture",
     "file": "myBlogs/myBlogsEngine.md",
@@ -62,37 +70,5 @@
     "date": "2026-06-18",
     "tags": ["angular", "lld", "design-patterns"],
     "summary": "Lessons learned deploying an Angular Tic-Tac-Toe engine to GitHub Pages and implementing low-level design undo/redo Command patterns."
-  },
-  {
-    "id": "chromeExtension",
-    "title": "Chrome Extension Development",
-    "file": "myBlogs/chromeExtension.md",
-    "date": "2026-06-05",
-    "tags": ["javascript", "web", "browser"],
-    "summary": "Building browser extensions with manifest configuration, content scripts, and background workers."
-  },
-  {
-    "id": "craftingInterpreters",
-    "title": "Crafting Interpreters Study Notes",
-    "file": "myBlogs/craftingInterpreters.md",
-    "date": "2026-05-20",
-    "tags": ["compilers", "java", "interpreters"],
-    "summary": "Exploring AST parsing, lexical analysis, tree-walk interpreters, and bytecode VMs."
-  },
-  {
-    "id": "sicp",
-    "title": "SICP: Structure & Interpretation of Computer Programs",
-    "file": "myBlogs/sicp.md",
-    "date": "2026-05-01",
-    "tags": ["cs-theory", "lisp", "foundations"],
-    "summary": "Notes and exercises from the classic MIT computer science text on abstraction and computational process."
-  },
-  {
-    "id": "version_control_fromScratch",
-    "title": "Version Control System from Scratch",
-    "file": "myBlogs/version_control_fromScratch.md",
-    "date": "2026-04-15",
-    "tags": ["git", "system-design", "storage"],
-    "summary": "Deconstructing Git: blob storage, tree objects, commit DAGs, and content-addressable storage mechanisms."
   }
 ]
