@@ -1,5 +1,13 @@
 [
   {
+    "id": "springsecurity",
+    "title": "Configuration of spring security through legacy XML config",
+    "file": "myBlogs/springsecurity.md",
+    "date": "2026-09-08",
+    "tags": [""],
+    "summary": "How to configure spring security through XML for kerberos and spenago implementation"
+  },
+{
     "id": "differentBroker",
     "title": "Handling different brokers for a message queue, to receive message and send acknowledgement",
     "file": "myBlogs/differentBroker.md",
